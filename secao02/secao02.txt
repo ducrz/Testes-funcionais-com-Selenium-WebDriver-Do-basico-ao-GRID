@@ -1,0 +1,70 @@
+Seção 2: Selenium IDE
+
+O que é Selenium?
+
+Selenium é uma ferramenta que automatiza ações em Browsers, simulando a interação entre o Usuário e o Browser.
+
+Selecium IDE - Record and Play
+Selenium Web Driver - API de métodos para o Selenium.
+Selenium GRID - Servidor que permite que várias máquinas façam conexão com ele.
+Selenium RC - Anterior ao Web Driver, depreciado.
+
+
+
+Atenção
+
+
+Montando o ambiente
+
+Selenium IDE, Extensão.
+
+https://www.selenium.dev/
+
+Elementos Básicos
+
+Instância alternativa do Sr. Barriga
+
+https://seubarriga.wcaquino.me/
+
+
+Record and Play
+
+
+Selenese e Locators
+
+Command, Target e value.
+
+
+Comando - Selenese
+Target - Onde o comando deve ser realizado
+
+Value - Quando é necessário passar alguma informação extra.
+
+
+
+Desafio: Testes da Conta
+
+
+
+
+Suíte de testes
+
+suite.side
+
+
+Sincronismo
+
+Do script com a aplicação, quando o script busca um elemtno na tela que não está presente ou habilitado.
+
+
+Google.side
+
+
+
+Considerações
+
+
+
+Exportando scripts
+
+InserirConta.java

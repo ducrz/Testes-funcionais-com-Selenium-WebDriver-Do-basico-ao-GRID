@@ -1,0 +1,113 @@
+{
+  "id": "c3ef62c6-c63d-4a8d-a41d-ae836e903aa9",
+  "version": "2.0",
+  "name": "Sr. Barriga",
+  "url": "https://seubarriga.wcaquino.me/",
+  "tests": [{
+    "id": "9857e4e4-4f41-4253-9d8b-4a33fda15b14",
+    "name": "Inserir",
+    "commands": [{
+      "id": "de4d765d-ad40-453d-9b42-40f1967fe6a7",
+      "comment": "",
+      "command": "open",
+      "target": "https://seubarriga.wcaquino.me/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "201e4259-fcf5-46fc-adf9-db538ea61198",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x789",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f9b2419d-c700-4e5f-baad-14d233810638",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contas",
+      "targets": [
+        ["linkText=Contas", "linkText"],
+        ["css=.dropdown-toggle", "css:finder"],
+        ["xpath=//a[contains(text(),'Contas')]", "xpath:link"],
+        ["xpath=//div[@id='navbar']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[3]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Contas ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e43bcc75-9af6-4dbe-a2af-e0c3219f3905",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Adicionar",
+      "targets": [
+        ["linkText=Adicionar", "linkText"],
+        ["css=.dropdown-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Adicionar')]", "xpath:link"],
+        ["xpath=//div[@id='navbar']/ul/li[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addConta')]", "xpath:href"],
+        ["xpath=//li[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Adicionar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8be7244c-8554-4e46-9798-9c959865afa2",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d6e0e17-af45-4063-9cf0-095cdf74cf23",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Conta4"
+    }, {
+      "id": "9ceebdf0-d1de-4346-9903-3dad19e8371e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9235bc09-ced4-4a2f-9c2d-3500e6417677",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1558e4dd-7edc-479b-b8d5-67a01f23e02a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://seubarriga.wcaquino.me/"],
+  "plugins": []
+}

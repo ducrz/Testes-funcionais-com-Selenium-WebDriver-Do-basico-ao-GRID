@@ -1,0 +1,37 @@
+Seção 1: Introdução
+
+Visão Geral do Curso
+
+Principal Assunto do Curso: Selenium WebDriver.
+
+
+
+Níveis de Teste
+
+Base: Testes Unitários - Teste de cada unidade de código
+      Serviço - EJB, Webservice e etc
+      Funcionais - Comportamento de software da visão do usuário. Necessário Frontend.
+      
+
+Pirâmide de testes
+
+
+Importância da automação
+
+Análise
+Especificação
+Construção
+Testes
+Produção
+
+
+O custo para correção de bugs aumenta em 10x para cada estágio em que o projeto de software avança.
+
+Testes funcionais devem ser executados o mais cedo possível, ainda na fase de construção.
+
+
+Existem diversas ferramentas que ajudam na criação de testes funcionais automatizados.
+
+Sendo criada uma suíte de testes, ela pode ser executada sempre que necessário.
+
+

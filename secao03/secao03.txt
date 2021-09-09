@@ -190,11 +190,33 @@ Alert alerta = driver.switchTo().alert();
 
 Desafio: Cadastro com sucesso
 
+TesteCadastro.java
+
+
 Frames
+
+	driver.switchTo().frame("frame1");
+	driver.findElement(By.id("frameButton")).click();
+
+
+findElement
 
 Janela
 
+driver.switchTo().window("");
+
+
 WindowHandler
 
+driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
+
+
+
+
 Desafio: Testar regras de negócio
+
+Um teste por regra.
+
+
+TesteCadastro.java
 

@@ -1,0 +1,79 @@
+Seção 3: Selenium Webdriver
+
+
+Selenium Webdriver
+
+Também conhecido como Selenium 2, nasceu com uma junção do antigo Selenium Remote Control com o Webdriver.
+
+Versão 3 do Selenium.
+
+https://www.selenium.dev/documentation/webdriver/
+
+
+Montando o ambiente
+
+Gecko Driver
+https://github.com/mozilla/geckodriver/releases
+
+geckodriver
+
+https://medium.com/@wcaquino/configurando-drivers-do-selenium-no-linux-windows-e-osx-1fed9651b200
+
+Editar no Linux /etc/profile
+
+export PATH=$PATH:/CAMINHO/DA/SUA/PASTA
+
+No Eclipse > File > New > Other > Maven > Maven Project
+
+pom.xml > 
+<dependencies>
+  <dependency>
+  <groupId>org.seleniumhq.selenium</groupId>
+  <artifactId>selenium-java</artifactId>  
+  <version>3.141.59</version>
+  </dependency>
+  </dependencies>
+
+Primeira execução
+
+JUnit
+
+Executando no Chrome e Internet Explorer
+
+Posição e tamanho do browser
+
+Fechando o browser
+
+Elementos básicos: Campo de treinamento
+
+Elementos básicos: TextField e TextArea
+
+Elementos básicos: Radio e Check
+
+
+Elementos básicos: Combo
+
+Elementos básicos: Combo de múltipla escolha
+
+Elementos básicos: Botão
+
+Elementos básicos: Link
+
+Elementos básicos: Div e Span
+
+Alert: Simples
+
+Alert: Confirm
+
+Alert: Prompt
+
+Desafio: Cadastro com sucesso
+
+Frames
+
+Janela
+
+WindowHandler
+
+Desafio: Testar regras de negócio
+

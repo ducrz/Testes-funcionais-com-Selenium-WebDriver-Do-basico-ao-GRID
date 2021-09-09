@@ -1,4 +1,6 @@
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -8,15 +10,25 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class TesteFrames {
-
-	@Test
-	public void deveInteragirComFrames(){
+private WebDriver driver;
+	
+	@Before
+	public void inicializa(){
 		//Firefox
 		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
 		WebDriver driver = new FirefoxDriver();
 		
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+	}
+	
+	@After
+	public void finaliza(){
+		driver.quit();
+	}
+
+	@Test
+	public void deveInteragirComFrames(){
 		
 		driver.switchTo().frame("frame1");
 		driver.findElement(By.id("frameButton")).click();

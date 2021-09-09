@@ -1,0 +1,43 @@
+Seção 4: Organização de código
+
+
+Reúso de código
+
+DRY - Don't Repeat Yourself
+
+Não fique repetindo os mesmos códigos, quando isto for necessário, coloque-o em um método.
+
+Sempre que um trecho de código possa ser útil em outro ponto, extraia ele para um método menor, assim este vai ficar centralizado em um ponto apenas, facilitando a manutenção.
+
+
+Before e After
+
+//Antes de cada teste, execute o conteúdo deste método
+@Before
+public void inicializa(){
+//Firefox
+System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
+WebDriver driver = new FirefoxDriver();
+		
+driver.manage().window().setSize(new Dimension(1200, 765));
+driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+}
+	
+//Depois de cada teste, fecha a janela
+@After
+public void finaliza(){
+		driver.quit();
+}
+
+DSL
+
+DSL: Resultado
+
+Page Objects, parte 1
+
+Page Objects, parte 2
+
+Testes Parametrizáveis
+
+
+Suíte de testes

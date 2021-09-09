@@ -1,4 +1,6 @@
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -8,16 +10,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class TesteCadastro {
-
-	@Test
-	public void deveRealizarCadastroComSucesso(){
+	
+private WebDriver driver;
+	
+	@Before
+	public void inicializa(){
 		//Firefox
 		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
 		WebDriver driver = new FirefoxDriver();
 		
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+	}
+	
+	@After
+	public void finaliza(){
+		driver.quit();
+	}
+
+	@Test
+	public void deveRealizarCadastroComSucesso(){
+	
 		driver.findElement(By.id("elementosForm:nome")).sendKeys("Wagner");
 		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Costa");
 		driver.findElement(By.id("elementosForm:sexo:0")).click();
@@ -41,12 +54,6 @@ public class TesteCadastro {
 	
 	@Test
 	public void validarNomeObrigatorio(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
 		driver.findElement(By.id("elementosForm:cadastrar")).click();
 		Alert alert = driver.switchTo().alert();
@@ -56,12 +63,7 @@ public class TesteCadastro {
 	
 	@Test
 	public void validarSobrenomeObrigatorio(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
 		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
 		driver.findElement(By.id("elementosForm:nome")).sendKeys("Nome qualquer");
 		driver.findElement(By.id("elementosForm:cadastrar")).click();
@@ -72,13 +74,7 @@ public class TesteCadastro {
 	
 	@Test
 	public void validarSexoObrigatorio(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+	
 		driver.findElement(By.id("elementosForm:nome")).sendKeys("Nome qualquer");
 		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome qualquer");
 		driver.findElement(By.id("elementosForm:cadastrar")).click();
@@ -89,12 +85,6 @@ public class TesteCadastro {
 	
 	@Test
 	public void validarComidaVegetariana(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
 		driver.findElement(By.id("elementosForm:nome")).sendKeys("Nome qualquer");
 		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome qualquer");
@@ -109,12 +99,6 @@ public class TesteCadastro {
 	
 	@Test
 	public void validarEsportistaIndeciso(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
 		driver.findElement(By.id("elementosForm:nome")).sendKeys("Eduardo");
 		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Monteiro");

@@ -1,4 +1,6 @@
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -8,15 +10,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class TesteFramesEJanelas {
-
-	@Test
-	public void deveInteragirComFrames(){
+private WebDriver driver;
+	
+	@Before
+	public void inicializa(){
 		//Firefox
 		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
 		WebDriver driver = new FirefoxDriver();
 		
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+	}
+	
+	@After
+	public void finaliza(){
+		driver.quit();
+	}
+	@Test
+	public void deveInteragirComFrames(){
 		
 		driver.switchTo().frame("frame1");
 		driver.findElement(By.id("frameButton")).click();
@@ -31,13 +42,7 @@ public class TesteFramesEJanelas {
 	
 	@Test
 	public void deveInteragirComJanelas(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+	
 		driver.findElement(By.id("buttonPopUpEasy")).click();
 		driver.switchTo().window("Popup");
 		driver.findElement(By.tagName("textarea")).sendKeys("Deu certo?");
@@ -49,12 +54,6 @@ public class TesteFramesEJanelas {
 	}
 	@Test
 	public void deveInteragirComJanelasSemTitulo(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
 		driver.findElement(By.id("buttonPopUpHard")).click();
 		System.out.println(driver.getWindowHandle());

@@ -36,7 +36,28 @@ pom.xml >
 
 Primeira execução
 
+TesteGoogle.java
+
+
 JUnit
+
+Nas versões mais atuais do Selenium, precisa adicionar a dependência do JUnit.
+
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+</dependency>
+
+Adicionar o Apache Commons IO
+
+<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.11.0</version>
+</dependency>
+
 
 Executando no Chrome e Internet Explorer
 

@@ -172,9 +172,21 @@ findElement(By.className());
 
 Alert: Simples
 
+TesteAlert.java
+
+
+
 Alert: Confirm
 
+Alert alerta = driver.switchTo().alert();
+		Assert.assertEquals("Confirm Simples", alerta.getText());
+		alerta.accept();
+		
+
 Alert: Prompt
+
+driver.findElement(By.id("prompt")).click();
+Alert alerta = driver.switchTo().alert();
 
 Desafio: Cadastro com sucesso
 

@@ -61,6 +61,16 @@ Adicionar o Apache Commons IO
 
 Executando no Chrome e Internet Explorer
 
+Chrome Driver
+
+https://chromedriver.chromium.org/downloads
+
+Microsoft Edge Driver
+
+https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+
+
+
 Posição e tamanho do browser
 
 Fechando o browser

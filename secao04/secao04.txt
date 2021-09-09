@@ -29,9 +29,18 @@ public void finaliza(){
 		driver.quit();
 }
 
-DSL
+DSL - Domain-Specific Language
+
+
+Linguagem própria, criada para resolver problemas específicos.
+
+
+DSL.java
+
 
 DSL: Resultado
+
+
 
 Page Objects, parte 1
 

@@ -70,27 +70,105 @@ Microsoft Edge Driver
 https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
 
 
+Firefox
+
+
+	System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
+	WebDriver driver = new FirefoxDriver();
+		
+
 
 Posição e tamanho do browser
 
+driver.manage().window().setSize(new Dimension(1200, 765));
+
+//Maximizado
+driver.manage().window().maximize();
+		
+
 Fechando o browser
+
+
+driver.quit();
+
 
 Elementos básicos: Campo de treinamento
 
+
+Projeto campo de treinamento.
+
+ System.getProperty("user.dir")
+ 
+ 
+ 
+
 Elementos básicos: TextField e TextArea
 
+
+
+driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("teste\n\naasldjdlks\nUltima linha");
+		Assert.assertEquals("teste\n\naasldjdlks\nUltima linha", driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+
+
+
+		
+
 Elementos básicos: Radio e Check
+
+O Junit não garante que a ordem que será efetivamente testada, será a mesma declarada.
 
 
 Elementos básicos: Combo
 
+Selecionar opção do combo e verificar qual opção foi selecionada.
+
+Select combo = new Select(element);
+
+combo.selectByIndex(2);
+ou
+
+combo.selectByValue("superior");
+
+ou
+
+combo.selectByVisibleText("2o grau completo");
+
+
+
 Elementos básicos: Combo de múltipla escolha
+
+	Select combo = new Select(element);
+	combo.selectByVisibleText("Natacao");
+	combo.selectByVisibleText("Corrida");
+	combo.selectByVisibleText("O que eh esporte?");
+		
+	List<WebElement> allSelectedOptions = combo.getAllSelectedOptions();
+	Assert.assertEquals(3, allSelectedOptions.size());
+		
+	combo.deselectByVisibleText("Corrida");
+	allSelectedOptions = combo.getAllSelectedOptions();
+	Assert.assertEquals(2, allSelectedOptions.size());
+
 
 Elementos básicos: Botão
 
+
+Como submeter um formulário clicando em um botão.
+
+
+	WebElement botao = driver.findElement(By.id("buttonSimple"));
+	botao.click();
+
 Elementos básicos: Link
 
+
 Elementos básicos: Div e Span
+
+findElement(By.tagName());
+
+findElement(By.className());
+
+
 
 Alert: Simples
 

@@ -1,0 +1,23 @@
+Seção 5: Javascript
+
+
+Javascript
+
+A API do Selenium é vasta, mas em alguns momentos ela pode não conseguir suprir as necessidades. Nestes casos e apenas nestes podem ser utilizados comandos Javascript diretamente no Browser.
+
+
+O grande avanço do Selenium RC para o WebDriver foi justamente a troca de comunicação via Javascript para métodos nativos do Browser e isto trouxe mais estabilidade.
+
+
+
+
+Scroll
+
+TesteFramesEJanelas.java
+
+
+dsl.executarJS("window.scrollBy(0, arguments[0])", frame.getLocation().y);
+
+
+
+

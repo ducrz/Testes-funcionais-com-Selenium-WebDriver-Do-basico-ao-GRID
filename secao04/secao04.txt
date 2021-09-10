@@ -74,5 +74,26 @@ CampoTreinamentoPage.java
 
 Testes Parametrizáveis
 
+Testes Parametrizáveis no JUnit, sendo possível inclusive a criação dinâmica de testes baseados em um conjunto de dados que devem ser testados, este recurso é o Parameterizer.
+
+Data Driven Test - Teste orientado a dados.
+
+
+@RunWith(Parameterized.class)
+
+
+
 
 Suíte de testes
+
+Com o uso de uma suíte de testes é possível agrupar classes de testes que precisem ser executadas em conjunto, inclusive definindo a ordem de execução.
+
+
+SuiteTeste.java
+
+@RunWith(Suite.class)
+@SuiteClasses({
+	TesteCadastro.class,
+	TesteRegrasCadastro.class,
+	TesteCampoTreinamento.class
+})

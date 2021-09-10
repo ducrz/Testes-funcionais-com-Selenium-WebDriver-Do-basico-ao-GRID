@@ -19,7 +19,7 @@ public class TesteCampoTreinamento {
 	public void inicializa(){
 		//Firefox
 		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
 		
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");

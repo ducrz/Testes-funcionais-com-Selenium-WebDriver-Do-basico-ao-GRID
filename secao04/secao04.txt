@@ -44,7 +44,33 @@ DSL: Resultado
 
 Page Objects, parte 1
 
+Cada tela da aplicação deve ter uma classe Page associada a ela, e cada elemento desta tela terá métodos que possibilitam a interação com eles.
+
+As classes de testes, sempre que precisar interagir com um elemento da tela, irão fazer esta comunicação através da page relativa aquela parte, resolvendo o problema da manutenção.
+
+Se vários testes estão interagindo com o mesmo elemento, e a forma de comunicação com este elemento mudar, basta alterar o método da classe page que todos os testes voltarão a funcionar.
+
+Para que o reuso funcione bem, é importante que os nomes destas classes page sejam bem descritivos, de tal forma que seja possível facilmente associar uma tela da aplicação com uma classe page.
+
+Desta forma, sempre que for necessário acessar alguma tela, é fácil buscar se existe uma classe page respectiva que já tenha sido criado e se existe método para interagir com o elemento necessário.
+
+Assim, o código acaba sendo dividido em duas classes: a classe de testes e a classe page.
+
+A classe de testes é onde será refletido todos os passos do caso de teste, já a classe page deve conter apenas métodos de interação com os elementos dá página que ela está referenciando, ou seja, toda a estrutura do teste fica na classe de testes, sendo a classe page invocada apenas para coletar ou alterar dados na tela. 
+
+A classe de testes não deve ter dependências com Selenium, todas as referências a ele devem estar na classe page, pois é a page que acessa a tela e Selenium automatiza Browsers, sendo necessário um framework de testes para que seja feito um teste de verdade. Então o teste fica na classe teste e o link para o Browser fica na classe page, onde estará o Selenium.
+
+A classe teste não deve ter nenhum elemento de HTML/CSS/Javascript, pois estes elementos irão fazer uma ligação direta com o Browser, devem estar na classe page.
+
+Fazer assertivas na classe Page também não é uma boa prática, o teste deve coletar os dados, através das classes Page e ele faça as assertivas necessárias, pois assertivas estão ligadas a alguma lógica dos testes, por exemplo alguma verificação que precisa ser feita, sendo responsabilidade da classe de teste.
+
+
+
+
 Page Objects, parte 2
+
+CampoTreinamentoPage.java
+
 
 Testes Parametrizáveis
 

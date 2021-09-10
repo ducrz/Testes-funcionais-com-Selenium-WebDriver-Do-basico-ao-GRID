@@ -7,12 +7,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TesteGoogle {
+	private WebDriver driver;
+
 	
 	@Test
 	public void teste() {
 		//Firefox
 		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
+		 driver = new FirefoxDriver();
 		
 		//Chrome
 		//System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");

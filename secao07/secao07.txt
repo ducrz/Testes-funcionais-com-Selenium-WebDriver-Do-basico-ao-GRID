@@ -1,0 +1,57 @@
+Seção 7: Aplicando Sincronismo
+
+
+Problema de sincronismo
+
+Ocorre entre o comando enviado e o Browser.
+
+
+
+Espera Fixa
+
+Consiste em segurar o fluxo por um determinado período de tempo.
+
+
+Thread.sleep(5000); //5 segundos
+
+
+Espera Implícita
+
+Espera um elemento por até determinado tempo.
+
+
+Espera Explícita
+
+Não é definido um valor específico, nos pontos onde existirem problemas de sincronismo, será explicitamente definido uma espera para este elemento.
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("novoCampo")));
+
+
+Qual a melhor estratégia?
+
+https://stackoverflow.com/questions/15164742/combining-implicit-wait-and-explicit-wait-together-results-in-unexpected-wait-ti#answer-15174978
+
+Espera implícita ou explícita.
+
+Implícita - implementação mais simples, porém mais lentos, pois existem alguns casos em que só está sendo certificado se um elemento não está aparecendo, o feedback só ocorre após todo o tempo de espera.
+Existem também casos que pode ser necessário uma espera menor ou maior que a padrão e não é possível definir uma espera específica por elemento.
+
+
+Explícita - mais controle, pode definir inclusive uma espera mais específica.
+
+
+Combinar as duas formas também não é uma boa escolha, pois a implicita utiliza códigos remotos dos drivers e a explícita utiliza linguagem nativa.
+
+
+
+A mais recomendada é a explícita, oferece mais controle das esperas, os testes ficarão mais rápidos pois só irão esperar quando realmente for necessário, em aplicações simples a necessidade de esperaas será baixa, porém em aplicações mais complexas, por exemplo, com AJAX, a espera implícita não irá funcionar muito bem.
+
+
+Ajax
+
+https://www.primefaces.org/showcase/ui/ajax/basic.xhtml?jfwid=05ab2
+
+TesteAjax.java
+
+

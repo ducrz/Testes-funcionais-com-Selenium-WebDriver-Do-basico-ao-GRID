@@ -1,0 +1,138 @@
+Seção 6: Locators Avançado
+
+
+Importância dos IDs
+
+IDs facilitam a localização de elementos, porém muitas vezes não são informados os IDs ou estes são gerados de forma randômica, de acordo com a árvore de elementos da tela.
+
+Para verificar se os IDs foram criados, é possível fazer análise de código através do Sonar.
+
+
+https://github.com/SonarSource/sonar-html/pull/6
+
+https://github.com/SonarSource/sonar-html
+
+
+
+Plugins do firefox
+
+Xpath é uma linguagem de consulta que serve para localizar nós de um elemento.
+
+
+Firebug e Firepath
+
+
+Alternativa no Chrome > Ferramentas do Desenvolvedor > Selecionar Elements e ctrl + F e na tela de busca pode usar Xpath.
+
+
+
+
+Entendendo Xpath
+
+Xpath absoluto - Todo o caminho.
+
+Xpath  relativo - Somente o caminho a partir de um "ponto conhecido", próximo do elemento que precisa ser referenciado. Ex: /html/body/form/table/tbody/tr/td/input
+
+
+
+
+Criando Xpath
+
+Referenciando título(h3), por exemplo: 
+
+Absoluto: /html/body/center/form/h3
+
+Relativo: //h3
+
+	//input[@id='buttonSimple']
+	//input[@value='Abrir Popup']
+	//input[@type='button']
+	//input[@type='button']['3']
+	
+	//input[@name='elementosForm:Sexo' and @value='F']
+	//*[.=' Feminino']
+	//*[constains(.,"Feminino")]
+	//label[.=' Feminino']
+	//label[.=' Feminino']/../input	
+	
+https://www.red-gate.com/simple-talk/development/dotnet-development/xpath-css-dom-and-selenium-the-rosetta-stone/
+
+
+	
+Desafio: Encontre elementos com Xpath
+
+Textfield:Nome
+
+//input[@id='elementosForm:nome']
+
+
+Radio: Sexo Feminino (sem usar id)
+
+//*[@name='elementosForm:sexo' and @value='F']
+
+
+Label: "Pizza" (sem buscar pelo texto)
+
+//*[@name='elementosForm:comidaFavorita:2']/../label
+
+//*[@name='elementosForm:comidaFavorita:2']/following-sibling::label
+
+
+
+"Usuario B" da tabela sem header
+
+//*[@id='tabelaSemJSF2']//td[.='Usuario B']
+
+
+
+Botão do elemento "Maria"
+
+//*[@id='elementosForm:tableUsuarios']//td.[.='Maria']/..//input[@type='button']
+
+
+Radio do elemento nome e escolaridade "Doutorado"
+
+.//*[@id='elementosForm:tableUsuarios']//td.[1][.='Doutorado']/..//td[2][.='Doutorado']//..//input[@type='radio']
+
+
+
+Textfield do segundo elemento escolaridade "Superior"
+
+(//*[@id='elementosForm:tableUsuarios']//td[2][.='Superior'])[2]
+
+
+
+Interação dinâmica com tabelas
+
+
+
+Interação dinâmica com tabelas (continuação)
+
+DSL.java
+TesteCampoTreinamento.java
+
+
+Voltando ao cadastro com sucesso
+
+TesteCadastro.java
+
+PrimeFaces
+
+Framework de aplicações web em Java.
+
+https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml?jfwid=09295
+
+
+TestePrime.java
+
+
+Desafio: Combo prime
+
+Selecione um valor e verifique se este valor foi selecionado.
+
+https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml?jfwid=310ef
+
+
+TestePrime.java
+
+

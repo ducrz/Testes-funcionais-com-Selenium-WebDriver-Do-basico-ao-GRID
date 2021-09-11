@@ -1,0 +1,78 @@
+Seção 8: Criando um Framework
+
+
+Criando nosso próprio framework
+
+Framework é uma abstração que serve de estrutura para o projeto visando reúso e o mínimo de padronização do código, geralmente traz um pouco mais de complexidade em troca de alguns vantagens nativas que para o nosso Framework serão:
+
+Driver Centralizado, Herança de Comportamento, Reúso do Browser, Screenshot ao final de todos os testes, Chaveamento para outros Browsers e Padronização.
+
+
+Driver centralizado
+
+Package br.ce.wcaquino.core
+DriverFactory.java
+DSL.java
+
+DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+
+@After
+	public void finaliza(){
+		killDriver();
+}
+
+Herança do comportamento
+
+As classes teste e page vão herdar comportamentos específicos ao seus tipos.
+
+extends BaseTest
+
+extends BasePage
+
+
+Reúso do browser
+
+É possível utilizar a mesma sessão do Browser em todos os testes e ganhar tempo de execução.
+
+A prática correta é que cada teste abra um Browser, execute o teste e feche, porque cada teste deve ser autocontido, um teste não deve depender de outro para funcionar e não deve sofrer impactos de outros testes.
+
+
+Screenshot ao final dos testes
+
+TakesScreenshot ss = (TakesScreenshot) getDriver();
+		File arquivo = ss.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshot" +
+				File.separator + testName.getMethodName() + ".jpg"));
+		
+
+
+Chaveamento de browser
+
+Definir em que Browser o teste deve ser executado.
+
+public static Browsers browser = Browsers.FIREFOX;
+	
+	public enum Browsers {
+		CHROME,
+		FIREFOX
+	}
+	
+
+switch (Propriedades.browser) {
+			case FIREFOX: 
+				System.setProperty("webdriver.gecko.driver", "drivers/geckodrver");
+				driver = new FirefoxDriver();					
+				break;
+			case CHROME: 					
+				System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
+				driver = new ChromeDriver();
+				break;
+			}
+			
+			
+
+Recapitulando as melhorias...
+
+As melhorias feitas desde o início.
+
+

@@ -1,30 +1,28 @@
+package br.ce.wcaquino.test;
+import static br.ce.wcaquino.core.DriverFactory.getDriver;
+import static br.ce.wcaquino.core.DriverFactory.killDriver;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import br.ce.wcaquino.core.DSL;
 
 public class TestePrime {
 
-	private WebDriver driver;
 	private DSL dsl;
 
 	@Before
 	public void inicializa(){
-		//Firefox
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-		driver = new FirefoxDriver();
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml");
-		dsl = new DSL(driver);
+		getDriver().get("https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml");
+		dsl = new DSL();
 	}
 	
 	@After
 	public void finaliza(){
-		driver.quit();
+		killDriver();
 	}
 
 	@Test
@@ -37,7 +35,7 @@ public class TestePrime {
 	}
 	@Test
 	public void interagircomSelectPrime(){
-		driver.get("https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml");
+		getDriver().get("https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml");
 		dsl.selecionarComboPrime("j_idt303:option", "Option1");
 		Assert.assertEquals("Option1", dsl.obterTexto("j_idt303:Option1"));
 	}

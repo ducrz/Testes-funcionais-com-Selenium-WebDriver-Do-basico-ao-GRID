@@ -1,3 +1,4 @@
+package br.ce.wcaquino.test;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -9,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.ce.wcaquino.core.DSL;
 
 public class TesteSincronismo {
 
@@ -22,7 +25,7 @@ public class TesteSincronismo {
 		driver = new FirefoxDriver();
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		dsl = new DSL(driver);
+		dsl = new DSL();
 	}
 	
 	@After

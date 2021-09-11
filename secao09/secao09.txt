@@ -1,0 +1,56 @@
+Seção 9: Testando uma aplicação real
+
+
+Extraindo o projeto básico
+
+Instância alternativa ao Sr. Barriga
+
+https://seubarriga.wcaquino.me
+
+Testes a ser realizados
+
+Inserir Conta, Alterar Conta, Inserir conta com mesmo nome, Inserir movimentação, Campos obrigatórios na movimentação, Movimentação futura, Remover movimentação, Remover conta com movimentação, Saldo das contas e Resumo Mensal.
+
+Login
+
+LoginPage.java
+
+
+Teste: Inserir Conta
+
+public void testInserirConta(){
+		menuPage.acessarTelaInserirConta();
+		
+		contasPage.setNome("Conta do Teste");
+		contasPage.salvar();
+		
+		Assert.assertEquals("Conta adicionada com sucesso!", contasPage.obterMensagemSucesso());
+	}
+
+Teste: Alterar Conta
+
+Teste: Inserir conta com mesmo nome
+
+Teste: Inserir movimentação
+
+Teste: Campos obrigatórios na movimentação
+
+Teste: Movimentação futura
+
+Teste: Remover movimentação
+
+Teste: Remover conta com movimentação
+
+Teste: Saldo das contas
+
+Teste: Resumo mensal
+
+Gerenciamento de massa de dados, parte 1
+
+Execução sequenciada
+
+Acelerando a execução
+
+
+
+

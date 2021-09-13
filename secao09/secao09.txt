@@ -29,27 +29,77 @@ public void testInserirConta(){
 
 Teste: Alterar Conta
 
+
+
 Teste: Inserir conta com mesmo nome
+
 
 Teste: Inserir movimentação
 
+
 Teste: Campos obrigatórios na movimentação
+
 
 Teste: Movimentação futura
 
+
 Teste: Remover movimentação
+
 
 Teste: Remover conta com movimentação
 
+
 Teste: Saldo das contas
+
 
 Teste: Resumo mensal
 
+
 Gerenciamento de massa de dados, parte 1
+
+Para conseguir executar todos os testes na mesma suite é necessário garantir que a massa de dados que o teste necessita esteja pronta, no momento em que o teste esteja sendo executado.
+
+Como foi utilizado uma estratégia onde o resultado final de um teste já cria a massa de dados para o teste seguinte, é necessário organizar os testes em uma ordem que seja permitido a execução completa.
+
+Ordem necessária:
+
+Inserir Conta
+
+Alterar Conta
+
+Inserir Conta com mesmo nome
+
+Inserir Movimentação
+
+Campos Obrigatórios Movimentação
+
+Movimentação Futura
+
+Remover Movimentação
+
+Remover Conta com Movimentação
+
+Saldo das Contas
+
+Resumo Mensal
+
+
+Problemas: Se um dos testes falhar, a suíte vai falhar. Com suites de testes maiores, complexidade aumenta.
+
+
 
 Execução sequenciada
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING) - Ordem Alfabética
+
+
 Acelerando a execução
+
+Com os ajustes, o tempo de execução da suíte de testes diminuiu para 22s.
+
+
+
+Desafio: Teste do Resumo Mensal Vazio
 
 
 

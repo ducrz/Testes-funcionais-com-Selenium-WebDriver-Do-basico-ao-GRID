@@ -1,8 +1,7 @@
 package br.ce.wcaquino.core;
 
 public class Propriedades {
-	//Não fechar Browser a cada teste
-	public static boolean FECHAR_BROWSER = false; 
+	public static boolean FECHAR_BROWSER = true; 
 	
 	public static Browsers browser = Browsers.FIREFOX;
 	

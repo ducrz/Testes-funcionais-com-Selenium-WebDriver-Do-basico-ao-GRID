@@ -1,5 +1,4 @@
 package br.ce.wcaquino.suites;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -25,16 +24,15 @@ public class SuiteGeral {
 	private static LoginPage page = new LoginPage();
 	
 	@BeforeClass
-	public static void inicializa(){
+	public static void reset(){
 		page.acessarTelaInicial();
 		
 		page.setEmail("emaildeteste@uorak.com");
 		page.setSenha("Teste");
 		page.entrar();
-	}
-	
-	@AfterClass
-	public static void finaliza(){
+		
+		page.resetar(); //Aqui poderia ser chamado o script SQL
+		
 		DriverFactory.killDriver();
 	}
 }

@@ -1,0 +1,63 @@
+Seção 11: Execução dos testes na nuvem
+
+
+Saucelabs
+
+Fundada pelos criadores do Selenium.
+
+https://saucelabs.com/
+
+
+Account, User Settings> Acess Key e Drive Creation URL.
+
+
+
+
+
+Olhando para as nuvens
+
+public static TipoExecucao TIPO_EXECUCAO = TipoExecucao.NUVEM;
+
+public enum TipoExecucao {
+		LOCAL,
+		GRID,
+		NUVEM
+	}
+	
+if(Propriedades.TIPO_EXECUCAO == TipoExecucao.NUVEM) {
+			DesiredCapabilities cap = null;
+			switch (Propriedades.BROWSER) {
+				case FIREFOX: cap = DesiredCapabilities.firefox(); break;
+				case CHROME: cap = DesiredCapabilities.chrome(); break;
+			}
+			try {
+				driver = new RemoteWebDriver(new URL("https://usuario:acesskey@ondemand.us-west-1.saucelabs.com:443/wd/hub"), cap);
+			} catch (MalformedURLException e) {
+				System.err.println("Falha na conexão com a Saucelabs");
+				e.printStackTrace();
+			}
+		}	
+
+Fazendo mais execuções
+
+Mais Configurações e Executando no Edge
+
+cap = DesiredCapabilities.edge();
+cap.setCapability("platform", "Windows 10");
+cap.setCapability("version", "latest");
+
+https://saucelabs.com/platform/platform-configurator#/
+
+
+cap = DesiredCapabilities.edge();
+cap.setCapability("platform", "Windows 10");
+cap.setCapability("version", "latest");
+
+
+Retornando opção para testes locais e Firefox.
+
+Editando URL do SauceLabs para USUARIO:ACESSKEY, que precisa ser alterado para o correto em caso de testes na SauceLabs.
+
+
+
+

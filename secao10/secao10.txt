@@ -90,12 +90,95 @@ Selenium GRID
 
 https://www.selenium.dev/documentation/grid/
 
+Selenium Grid é um processo onde uma máquina local pode conectar-se a ele, podendo conectar várias máquinas ao mesmo Grid, podendo distribuir os testes entre as várias máquinas conectadas a ele (nós).
+
+Diretório GRID
+
+
+Iniciando Server
+
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+
+
+http://localhost:4444
+
+http://172.17.0.1:4444/grid/console
+
+
+Conectando Clientes
+
+java -jar selenium-server-standalone-3.141.59.jar -role node
+
+java -jar selenium-server-standalone-3.141.59.jar -role node -port 5556
+
+
+
 Refatorando testes para usar o GRID
+
+public static TipoExecucao TIPO_EXECUCAO = TipoExecucao.GRID;
+	
+	public enum Browsers {
+		CHROME,
+		FIREFOX
+	}
+	
+	public enum TipoExecucao {
+		LOCAL,
+		GRID
+	}
+
+}
+
+
+DriverFactory
+
+if(Propriedades.TIPO_EXECUCAO == TipoExecucao.GRID) {
+			DesiredCapabilities cap = null;
+			switch (Propriedades.BROWSER) {
+				case FIREFOX:
+					cap = DesiredCapabilities.firefox();
+				break;
+				case CHROME:
+					cap = DesiredCapabilities.chrome();
+				break;
+			}
+			try {
+				driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+			} catch (MalformedURLException e) {
+				System.err.println("Falha na conexão com o GRID");
+				e.printStackTrace();
+			}
+		}
+
 
 Preparando ambiente GRID: Windows
 
+Máquina Remota
+java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://ipmaquinaremota:4444/grid/register
+
+
 Preparando ambiente GRID: Linux
+
+sudo nano /etc/profile
+
+export PATH=$PATH:~/caminho/diretoriodosdrivers
+
+
+Máquina Remota
+
+java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://ipmaquinaremota:4444/grid/register
+
 
 Preparando ambiente GRID: OSX
 
+Editar /etch/paths
+
+/caminho/diretoriodosdrivers
+
+
+java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://ipmaquinaremota:4444/grid/register
+
+
 Execução remota dos testes
+
+
